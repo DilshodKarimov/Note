@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/createStyle.css" th:href="@{/createStyle.css}">
+</head>
+<body>
+
+
+    <form action="#" th:action="@{/update.html}" th:object="${note}"  method="post" >
+        <div class="row tile">
+            <label class="label_1">id</label>
+            <label class="label_1" field="*{id}" th:text="${notes.id}" id="id" ></label>
+            <input class="headLine headLine_1" type="text" name="headLine" field="*{headLine}" th:value="${notes.headLine}" id="headLine" placeholder="Head Line" />
+
+        </div>
+
+        <div class="row description">
+            <label for="bodyLine">Description</label>
+            <textarea class="bodyLine" type="text" name="bodyLine" field="*{bodyLine}"
+                      th:text="${notes.bodyLine}" id="bodyLine" placeholder="Body Line"></textarea>
+        </div>
+
+        <button type="submit" >Сохранить изменение</button>
+        <input type="submit" name="cancel" value="отмена">
+
+    </form>
+
+
+
+
+</body>
+</html>

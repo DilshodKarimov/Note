@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../static/readStyle.css" rel="stylesheet" th:href="@{/readStyle.css}">
+</head>
+<body>
+<a href="main.html"> <h1>main</h1></a>
+
+<div th:switch="${notes}">
+    <h2 th:case="null">No users found!</h2>
+    <div th:case="*">
+        <h2>Users</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>headLine</th>
+                <th>bodyLine</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="note : ${notes}">
+                    <td th:text="${note.id}"></td>
+                    <td th:text="${note.headLine}"></td>
+                    <td><textarea th:text="${note.bodyLine}"></textarea> </td>
+                    <td><a th:href="@{update.html/{id}(id=${note.id})}">Изменить</a></td>
+                    <td>
+                        <a th:href="@{delete.html/{id}(id=${note.id})}"  onclick="test(event)">Удалить</a>
+                        <script>
+                            function test(e) {
+                               if(confirm('Удалить?')){
+                               return true;
+                               }else{
+                               e.preventDefault();
+                               }
+                            };
+                            </script>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p class="create"><a href="create.html">Create notes</a></p>
+</div>
+
+</body>
+</html>

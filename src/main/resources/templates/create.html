@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/createStyle.css" th:href="@{/createStyle.css}">
+</head>
+<body>
+    <a href="main.html"> <h3>главгая</h3></a>
+
+<!--    <form action="#" th:action="@{/create.html}" th:object="${note}"  method="post" >-->
+<!--        <h1> Загаловка </h1>-->
+<!--        <input type="text" name="headLine" th:field="*{headLine}"  id="headLine" placeholder="Head Line" />-->
+<!--        <input type="text" name="bodyLine" th:field="*{bodyLine}" id="bodyLine" placeholder="Body Line" />-->
+<!--        <input type="submit"  value="Сохранить" />-->
+<!--    </form>-->
+
+    <form action="#" th:action="@{/create.html}" th:object="${note}"  method="post">
+        <div class="row tile" >
+            <label>Title</label>
+            <input type="text" id="input" th:field="*{headLine}" placeholder="Title">
+        </div>
+        <div class="row description">
+            <label for="bodyLine">Description</label>
+            <textarea  id="bodyLine" name="bodyLine" th:field="*{bodyLine}" placeholder="Body Line"></textarea>
+        </div>
+        <button type="submit"  class="add-note">Сохранить</button>
+    </form>
+
+
+    <a href="read.html"> <h3>Посмотреть таблицу</h3></a>
+
+
+</body>
+</html>
